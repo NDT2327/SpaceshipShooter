@@ -222,7 +222,11 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Enemy_projectile (16 x 16)_0: -1236330902681450892
+      Enemy_projectile (16 x 16)_1: 1024213390603698000
+      Enemy_projectile (16 x 16)_2: -8579833854061107739
+      Enemy_projectile (16 x 16)_3: -4661392685993625963
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

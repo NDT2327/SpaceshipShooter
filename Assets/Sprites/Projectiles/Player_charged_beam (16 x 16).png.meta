@@ -222,7 +222,11 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Player_charged_beam (16 x 16)_0: -8176307969900759673
+      Player_charged_beam (16 x 16)_1: -9107847776280937511
+      Player_charged_beam (16 x 16)_2: -6000471924754851970
+      Player_charged_beam (16 x 16)_3: -3963024405580626523
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
