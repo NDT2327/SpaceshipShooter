@@ -247,7 +247,12 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Lips (16 x 16)_0: -2073968935368736419
+      Lips (16 x 16)_1: -5994119870007553892
+      Lips (16 x 16)_2: 1073727993360252447
+      Lips (16 x 16)_3: 8339113566332980251
+      Lips (16 x 16)_4: -6673398971326381106
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

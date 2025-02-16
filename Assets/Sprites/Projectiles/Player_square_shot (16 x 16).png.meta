@@ -222,7 +222,11 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Player_square_shot (16 x 16)_0: -5337728089120372828
+      Player_square_shot (16 x 16)_1: 46846809402230610
+      Player_square_shot (16 x 16)_2: -2824201005174958662
+      Player_square_shot (16 x 16)_3: -3595993262155957539
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -522,7 +522,23 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Player_missile_shots (16 x 16)_0: -6952340918182228389
+      Player_missile_shots (16 x 16)_1: -3319754961487632845
+      Player_missile_shots (16 x 16)_10: -2740691502387667048
+      Player_missile_shots (16 x 16)_11: -1159099293651124171
+      Player_missile_shots (16 x 16)_12: 3920879044897473538
+      Player_missile_shots (16 x 16)_13: 1299350984755662514
+      Player_missile_shots (16 x 16)_14: 4696123886017398411
+      Player_missile_shots (16 x 16)_15: -3964539448279196649
+      Player_missile_shots (16 x 16)_2: 7710181546008480335
+      Player_missile_shots (16 x 16)_3: 8603042159346933751
+      Player_missile_shots (16 x 16)_4: -8833673028671888124
+      Player_missile_shots (16 x 16)_5: 2903793725919953423
+      Player_missile_shots (16 x 16)_6: -4228354769773294364
+      Player_missile_shots (16 x 16)_7: 1509195737339157949
+      Player_missile_shots (16 x 16)_8: -8422842639276637165
+      Player_missile_shots (16 x 16)_9: -6413250847567662106
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
