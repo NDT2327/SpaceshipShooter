@@ -197,7 +197,10 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Circle_+_Square_+_Missile_pick-ups (16 x 16)_0: -8055712855172713862
+      Circle_+_Square_+_Missile_pick-ups (16 x 16)_1: 595727307171276423
+      Circle_+_Square_+_Missile_pick-ups (16 x 16)_2: -1543314564218839039
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

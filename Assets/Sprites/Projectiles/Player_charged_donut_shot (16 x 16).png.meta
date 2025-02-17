@@ -222,7 +222,11 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Player_charged_donut_shot (16 x 16)_0: 3711926829960190991
+      Player_charged_donut_shot (16 x 16)_1: -6581760863493600130
+      Player_charged_donut_shot (16 x 16)_2: 607359757940194474
+      Player_charged_donut_shot (16 x 16)_3: -5763117303806037944
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -222,7 +222,11 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Power_+_charge_bars (full + empty) (32 x 16)_0: -746635234773336767
+      Power_+_charge_bars (full + empty) (32 x 16)_1: 6747111300534653434
+      Power_+_charge_bars (full + empty) (32 x 16)_2: -7272397557611016838
+      Power_+_charge_bars (full + empty) (32 x 16)_3: 3707636399848043878
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
