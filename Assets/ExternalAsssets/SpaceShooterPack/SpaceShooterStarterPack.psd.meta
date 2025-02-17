@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      SpaceShooterStarterPack_0: 4553793922207074891
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

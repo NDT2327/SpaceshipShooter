@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      insect-1_0: -8330128653744565926
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
