@@ -222,7 +222,11 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Bon_Bon (16 x 16)_0: 8550133159715990267
+      Bon_Bon (16 x 16)_1: 1072974177352859548
+      Bon_Bon (16 x 16)_2: 6829985470492376486
+      Bon_Bon (16 x 16)_3: -761847852912985168
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
