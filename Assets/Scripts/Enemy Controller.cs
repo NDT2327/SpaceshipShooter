@@ -1,9 +1,10 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     float speed;
+
     void Start()
     {
         speed = 2f;
@@ -14,7 +15,7 @@ public class EnemyController : MonoBehaviour
     {
         Vector2 position = transform.position;
 
-        //compute the enemy new position
+        //thiên thac
         position = new Vector2(position.x, position.y - speed * Time.deltaTime);
 
         //update the enemy position
