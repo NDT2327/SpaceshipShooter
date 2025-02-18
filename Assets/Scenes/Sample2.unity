@@ -305,6 +305,52 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1034069029}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1024626867
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1024626868}
+  - component: {fileID: 1024626869}
+  m_Layer: 0
+  m_Name: StarGeneratorGO
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1024626868
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1024626867}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.38531142, y: 2.7397325, z: -0.0055761337}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1024626869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1024626867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8fefd355e5ae2540bdb13da734a0379, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StarGO: {fileID: 7135353739967418560, guid: ae73dbe7f516b8841bc0637d6d7cbc21, type: 3}
+  MaxStars: 50
 --- !u!1 &1034069026
 GameObject:
   m_ObjectHideFlags: 0
@@ -413,7 +459,7 @@ Transform:
   m_GameObject: {fileID: 1034069026}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.54, y: -3.05, z: 0}
+  m_LocalPosition: {x: 2.01, y: -2.78, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -776,8 +822,8 @@ Camera:
   m_GameObject: {fileID: 1739891517}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0.00805267, g: 0.026673703, b: 0.10943389, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -827,8 +873,8 @@ Transform:
   m_GameObject: {fileID: 1739891517}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 1.7836, y: 1.3125, z: -10}
+  m_LocalScale: {x: 1.3567, y: 1.2625, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1007,3 +1053,4 @@ SceneRoots:
   - {fileID: 1739891520}
   - {fileID: 1034069029}
   - {fileID: 1964279672}
+  - {fileID: 1024626868}
