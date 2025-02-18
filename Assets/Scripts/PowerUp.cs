@@ -29,6 +29,11 @@ public class PowerUp : MonoBehaviour
         {
             collision.GetComponent<PlayerControl>().AddBulletPosition(); // Gọi phương thức ăn PowerUp
             audioSource.Play();
+
+            // Ẩn hình ảnh PowerUp để tránh hiện tượng "bị đứng" trên màn hình trong khi âm thanh đang phát
+            GetComponent<SpriteRenderer>().enabled = false;
+            GetComponent<Collider2D>().enabled = false;
+
             Destroy(gameObject, audioSource.clip.length); // Hủy PowerUp sau khi ăn
         }
     }
