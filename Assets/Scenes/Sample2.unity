@@ -321,7 +321,7 @@ GameObject:
   - component: {fileID: 1034069032}
   m_Layer: 0
   m_Name: PlayerGO
-  m_TagString: Player
+  m_TagString: PlayerShipTag
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -441,6 +441,7 @@ MonoBehaviour:
   BulletPosition03: {fileID: 1241257720}
   BulletPosition04: {fileID: 1036542476}
   BulletPosition05: {fileID: 338222532}
+  ExplosionGO: {fileID: 0}
   speed: 5
 --- !u!61 &1034069031
 BoxCollider2D:
