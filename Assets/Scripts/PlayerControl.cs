@@ -1,5 +1,5 @@
-
-﻿using System.Collections.Generic;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerControl : MonoBehaviour
@@ -7,24 +7,23 @@ public class PlayerControl : MonoBehaviour
     public GameObject PlayerBulletGO;
     public GameObject BulletPosition01;
     public GameObject BulletPosition02;
-
     public GameObject BulletPosition03;
     public GameObject BulletPosition04;
     public GameObject BulletPosition05;
     public GameObject ExplosionGO;
 
-
     public float speed;
+    public float maxStateDuration = 5f; // Thời gian giữ trạng thái 5 viên
 
     private List<GameObject> bulletPositions = new List<GameObject>();
-    private int currentState = 0; // Trạng thái hiện tại (0: chỉ 2 vị trí, 1: +BP03, 2: ẩn BP03, hiện BP04 & BP05, 3: hiện cả 5 vị trí)
+    private int currentState = 0; // Trạng thái hiện tại
 
     void Start()
     {
         bulletPositions.Add(BulletPosition01);
         bulletPositions.Add(BulletPosition02);
 
-        // Ẩn trước BulletPosition03, BulletPosition04, BulletPosition05
+        // Ẩn BulletPosition03, BulletPosition04, BulletPosition05
         BulletPosition03.SetActive(false);
         BulletPosition04.SetActive(false);
         BulletPosition05.SetActive(false);
@@ -63,18 +62,17 @@ public class PlayerControl : MonoBehaviour
         transform.position = pos;
     }
 
-
     public void AddBulletPosition()
     {
         switch (currentState)
         {
-            case 0: // Chỉ có BulletPosition01 & BulletPosition02 -> Bật thêm BulletPosition03
+            case 0:
                 BulletPosition03.SetActive(true);
                 bulletPositions.Add(BulletPosition03);
                 currentState = 1;
                 break;
 
-            case 1: // Có BulletPosition01, BulletPosition02, BulletPosition03 -> Ẩn BulletPosition03, hiện BulletPosition04 & BulletPosition05
+            case 1:
                 BulletPosition03.SetActive(false);
                 bulletPositions.Remove(BulletPosition03);
 
@@ -86,19 +84,35 @@ public class PlayerControl : MonoBehaviour
                 currentState = 2;
                 break;
 
-            case 2: // Có BulletPosition01, BulletPosition02, BulletPosition04, BulletPosition05 -> Hiện tất cả 5 vị trí
+            case 2:
                 BulletPosition03.SetActive(true);
                 bulletPositions.Add(BulletPosition03);
                 currentState = 3;
+
+                // Bắt đầu Coroutine để reset trạng thái sau maxStateDuration giây
+                StartCoroutine(ResetToPreviousState(maxStateDuration));
                 break;
 
-            case 3: // Đã có đủ 5 vị trí -> Không làm gì cả
+            case 3:
                 break;
         }
-}
+    }
+
+    IEnumerator ResetToPreviousState(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        if (currentState == 3)
+        {
+            // Quay lại trạng thái trước đó (chỉ có BulletPosition01, 02, 04, 05)
+            BulletPosition03.SetActive(false);
+            bulletPositions.Remove(BulletPosition03);
+            currentState = 2;
+        }
+    }
+
     void OnTriggerEnter2D(Collider2D collision)
     {
-        //Detect collion
         if (collision.CompareTag("AsteroidTag"))
         {
             PlayerExplosion();
@@ -108,8 +122,7 @@ public class PlayerControl : MonoBehaviour
 
     void PlayerExplosion()
     {
-        GameObject explosion = (GameObject)Instantiate(ExplosionGO);
+        GameObject explosion = Instantiate(ExplosionGO);
         explosion.transform.position = transform.position;
-
     }
 }
