@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1568518253530736812}
   m_Layer: 0
   m_Name: medium-A_0
-  m_TagString: Untagged
+  m_TagString: AsteroidTag
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -165,7 +165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52bab054fccc1bc47a5559bdabf7b46b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 0
+  Type: 1
   explosionEffect: {fileID: 8225641112512653565, guid: 77bb3897208dc3d40885a875c1e45e15, type: 3}
   minSpeed: 1
   maxSpeed: 3

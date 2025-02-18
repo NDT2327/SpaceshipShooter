@@ -17,7 +17,7 @@ public class PowerUp : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("PlayerShipTag"))
         {
             collision.GetComponent<PlayerControl>().AddBulletPosition(); // Gọi phương thức ăn PowerUp
             Destroy(gameObject); // Hủy PowerUp sau khi ăn
