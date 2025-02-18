@@ -5,6 +5,7 @@ public class PlayerControl : MonoBehaviour
     public GameObject PlayerBulletGO;
     public GameObject BulletPosition01;
     public GameObject BulletPosition02;
+    public GameObject ExplosionGO;
 
     public float speed;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -58,5 +59,21 @@ public class PlayerControl : MonoBehaviour
         pos.y = Mathf.Clamp(pos.y, min.y, max.y);
 
         transform.position = pos;
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        //Detect collion
+        if (collision.CompareTag("AsteroidTag"))
+        {
+            PlayerExplosion();
+            Destroy(gameObject);
+        }
+    }
+
+    void PlayerExplosion()
+    {
+        GameObject explosion = (GameObject)Instantiate(ExplosionGO);
+        explosion.transform.position = transform.position;
     }
 }
