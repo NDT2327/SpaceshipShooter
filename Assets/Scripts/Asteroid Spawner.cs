@@ -4,36 +4,32 @@ using System.Collections;
 public class AsteroidSpawner : MonoBehaviour
 {
     public GameObject[] asteroidPrefabs;
-    public float minSpawnTime = 1f;
+    public float minSpawnTime = 3f;
     public float maxSpawnTime = 3f;
     public float spawnAreaWidth = 10f;
     public int asteroidsPerWave = 6;
-    public float speedIncreaseRate = 0.1f;
     public float spawnDelay = 0.5f; // Độ trễ giữa các lần spawn
     public float spawnIncreaseDuration = 5f; // Thời gian để tăng dần số lượng và tốc độ spawn
     public int maxAsteroidsPerWave = 10; // Giới hạn số thiên thạch tối đa mỗi lần spawn
     public float minSpawnDelay = 0.2f; // Giới hạn tối thiểu của spawn delay
-    public float maxSpeedMultiplier = 3f;
-    private float currentSpeedMultiplier = 1f;
 
     private float nextSpawnTime;
-    private int currentAsteroidsPerWave = 1;
-    private float timeSinceStart = 0f;
-    
 
     void Start()
     {
         nextSpawnTime = Time.time + Random.Range(minSpawnTime, maxSpawnTime);
+        StartCoroutine(IncreaseAsteroidSpawnRate());
     }
 
     void Update()
     {
-        timeSinceStart += Time.deltaTime;
-        currentSpeedMultiplier = Mathf.Min(1 + timeSinceStart* speedIncreaseRate, maxSpeedMultiplier);
+        if (Time.time > nextSpawnTime)
+        {
+            StartCoroutine(SpawnWaveWithDelay());
 
-
+            nextSpawnTime = Time.time + Random.Range(minSpawnTime, maxSpawnTime);
+        }
     }
-    
 
     IEnumerator SpawnWaveWithDelay()
     {
