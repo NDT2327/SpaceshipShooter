@@ -15,6 +15,9 @@ public class PlayerControl : MonoBehaviour
     public float speed;
     public float maxStateDuration = 5f; // Thời gian giữ trạng thái 5 viên
 
+    private float powerDownTime = 5f; // Thời gian chờ trước khi giảm đạn
+    private Coroutine powerDownCoroutine; // Coroutine để xử lý giảm đạn
+
     private List<GameObject> bulletPositions = new List<GameObject>();
     private int currentState = 0; // Trạng thái hiện tại
 
@@ -70,17 +73,52 @@ public class PlayerControl : MonoBehaviour
         transform.position = pos;
     }
 
+    //public void AddBulletPosition()
+    //{
+    //    switch (currentState)
+    //    {
+    //        case 0:
+    //            BulletPosition03.SetActive(true);
+    //            bulletPositions.Add(BulletPosition03);
+    //            currentState = 1;
+    //            break;
+
+    //        case 1:
+    //            BulletPosition03.SetActive(false);
+    //            bulletPositions.Remove(BulletPosition03);
+
+    //            BulletPosition04.SetActive(true);
+    //            BulletPosition05.SetActive(true);
+    //            bulletPositions.Add(BulletPosition04);
+    //            bulletPositions.Add(BulletPosition05);
+
+    //            currentState = 2;
+    //            break;
+
+    //        case 2:
+    //            BulletPosition03.SetActive(true);
+    //            bulletPositions.Add(BulletPosition03);
+    //            currentState = 3;
+
+    //            // Bắt đầu Coroutine để reset trạng thái sau maxStateDuration giây
+    //            StartCoroutine(ResetToPreviousState(maxStateDuration));
+    //            break;
+
+    //        case 3:
+    //            break;
+    //    }
+    //}
     public void AddBulletPosition()
     {
         switch (currentState)
         {
-            case 0:
+            case 0: // 2 viên -> 3 viên
                 BulletPosition03.SetActive(true);
                 bulletPositions.Add(BulletPosition03);
                 currentState = 1;
                 break;
 
-            case 1:
+            case 1: // 3 viên -> 5 viên
                 BulletPosition03.SetActive(false);
                 bulletPositions.Remove(BulletPosition03);
 
@@ -92,19 +130,59 @@ public class PlayerControl : MonoBehaviour
                 currentState = 2;
                 break;
 
-            case 2:
+            case 2: // 5 viên -> 5 viên + tăng thời gian giữ
                 BulletPosition03.SetActive(true);
                 bulletPositions.Add(BulletPosition03);
                 currentState = 3;
-
-                // Bắt đầu Coroutine để reset trạng thái sau maxStateDuration giây
-                StartCoroutine(ResetToPreviousState(maxStateDuration));
                 break;
 
             case 3:
                 break;
         }
+
+        // Reset thời gian giảm đạn nếu đang chạy
+        if (powerDownCoroutine != null)
+        {
+            StopCoroutine(powerDownCoroutine);
+        }
+        powerDownCoroutine = StartCoroutine(PowerDown());
     }
+
+    IEnumerator PowerDown()
+    {
+        while (currentState > 0)
+        {
+            yield return new WaitForSeconds(powerDownTime);
+
+            // Giảm đạn xuống cấp độ thấp hơn
+            switch (currentState)
+            {
+                case 3: // 5 viên -> 3 viên
+                    BulletPosition03.SetActive(false);
+                    bulletPositions.Remove(BulletPosition03);
+                    currentState = 2;
+                    break;
+
+                case 2: // 3 viên -> 2 viên
+                    BulletPosition04.SetActive(false);
+                    BulletPosition05.SetActive(false);
+                    bulletPositions.Remove(BulletPosition04);
+                    bulletPositions.Remove(BulletPosition05);
+
+                    BulletPosition03.SetActive(true);
+                    bulletPositions.Add(BulletPosition03);
+                    currentState = 1;
+                    break;
+
+                case 1: // 3 viên -> 2 viên (trạng thái mặc định)
+                    BulletPosition03.SetActive(false);
+                    bulletPositions.Remove(BulletPosition03);
+                    currentState = 0;
+                    break;
+            }
+        }
+    }
+
 
     IEnumerator ResetToPreviousState(float delay)
     {
