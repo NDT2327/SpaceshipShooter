@@ -6,9 +6,12 @@ public class PlayerControl : MonoBehaviour
     public GameObject PlayerBulletGO;
     public GameObject BulletPosition01;
     public GameObject BulletPosition02;
+
     public GameObject BulletPosition03;
     public GameObject BulletPosition04;
     public GameObject BulletPosition05;
+    public GameObject ExplosionGO;
+
 
     public float speed;
 
@@ -59,6 +62,7 @@ public class PlayerControl : MonoBehaviour
         transform.position = pos;
     }
 
+
     public void AddBulletPosition()
     {
         switch (currentState)
@@ -90,5 +94,21 @@ public class PlayerControl : MonoBehaviour
             case 3: // Đã có đủ 5 vị trí -> Không làm gì cả
                 break;
         }
+}
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        //Detect collion
+        if (collision.CompareTag("AsteroidTag"))
+        {
+            PlayerExplosion();
+            Destroy(gameObject);
+        }
+    }
+
+    void PlayerExplosion()
+    {
+        GameObject explosion = (GameObject)Instantiate(ExplosionGO);
+        explosion.transform.position = transform.position;
+
     }
 }

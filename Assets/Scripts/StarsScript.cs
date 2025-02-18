@@ -6,6 +6,8 @@ public class StarsScript : MonoBehaviour
     public int score = 100;
     public float deadZone = -7f;
 
+    public GameObject explosionPrefab;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -28,6 +30,15 @@ public class StarsScript : MonoBehaviour
         //thêm hàm cộng score ở đây
 
         //
-        Destroy(gameObject);
+        if (explosionPrefab != null)
+        {
+            GameObject explosion = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+            Destroy(explosion, 0.5f); // Xóa hiệu ứng sau 1 giây
+        }
+
+        // Trì hoãn hủy gameObject để hiệu ứng hiển thị trước khi biến mất
+        GetComponent<SpriteRenderer>().enabled = false; // Ẩn sprite ngay khi va chạm
+        GetComponent<Collider2D>().enabled = false; // Vô hiệu hóa collider tránh va chạm tiếp
+        Destroy(gameObject, 0.5f); // Chờ 0.5 giây rồi xóa
     }
 }

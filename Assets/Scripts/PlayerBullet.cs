@@ -3,6 +3,7 @@ using UnityEngine;
 public class PlayerBullet : MonoBehaviour
 {
     float speed;
+    public GameObject ExplosionGO;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -25,5 +26,20 @@ public class PlayerBullet : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+     void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("AsteroidTag"))
+        {
+            PlayExplosion();
+            Destroy(gameObject);
+        }
+    }
+
+    void PlayExplosion()
+    {
+        GameObject explosion = (GameObject)Instantiate(ExplosionGO);
+        explosion.transform.position = transform.position;
     }
 }
