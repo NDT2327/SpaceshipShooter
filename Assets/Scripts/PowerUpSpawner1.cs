@@ -5,7 +5,7 @@ public class PowerUpSpawner1 : MonoBehaviour
 {
     public GameObject powerUpPrefab; // Prefab của PowerUp
     public Transform[] spawnPositions; // Danh sách vị trí spawn
-    public float spawnInterval = 5f; // Thời gian spawn PowerUp
+    public float spawnInterval; // Thời gian spawn PowerUp
 
     void Start()
     {

@@ -198,8 +198,10 @@ MonoBehaviour:
   BulletPosition03: {fileID: 3691216384505495258}
   BulletPosition04: {fileID: 788041238836740378}
   BulletPosition05: {fileID: 5119900461182841469}
-  ExplosionGO: {fileID: 0}
+  ExplosionGO: {fileID: 8225641112512653565, guid: 77bb3897208dc3d40885a875c1e45e15, type: 3}
   speed: 5
+  maxStateDuration: 5
+  laserSound: {fileID: 8300000, guid: 3c35b5cf2d254994697fc362cc2e4694, type: 3}
 --- !u!61 &5898186159419163210
 BoxCollider2D:
   m_ObjectHideFlags: 0

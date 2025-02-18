@@ -3,7 +3,15 @@
 public class PowerUp : MonoBehaviour
 {
     public float speed = 2f;
+    private AudioSource audioSource;
+
     private Vector2 moveDirection;
+
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+
+    }
 
     void Update()
     {
@@ -20,7 +28,8 @@ public class PowerUp : MonoBehaviour
         if (collision.CompareTag("PlayerShipTag"))
         {
             collision.GetComponent<PlayerControl>().AddBulletPosition(); // Gọi phương thức ăn PowerUp
-            Destroy(gameObject); // Hủy PowerUp sau khi ăn
+            audioSource.Play();
+            Destroy(gameObject, audioSource.clip.length); // Hủy PowerUp sau khi ăn
         }
     }
 }

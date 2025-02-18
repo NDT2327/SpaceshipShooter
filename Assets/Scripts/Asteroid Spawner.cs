@@ -3,14 +3,14 @@
 public class AsteroidSpawner : MonoBehaviour
 {
     public GameObject[] asteroidPrefabs;
-    public float spawnInterval = 2f;          // Thời gian giữa các lần spawn (giây)
-    public float spawnAreaWidth = 10f;         // Chiều rộng khu vực spawn
-    public float initialSpeed = 1f;          // Tốc độ ban đầu của thiên thạch
-    public float maxSpeed = 5f;             // Tốc độ tối đa của thiên thạch
+    public float spawnInterval = 1.5f;          // Thời gian giữa các lần spawn (giây)
+    public float spawnAreaWidth = 25f;         // Chiều rộng khu vực spawn
+    public float initialSpeed = 3f;          // Tốc độ ban đầu của thiên thạch
+    public float maxSpeed = 10f;             // Tốc độ tối đa của thiên thạch
     public int minAsteroidsPerSpawn = 1;     // Số lượng thiên thạch tối thiểu mỗi lần spawn
-    public int maxAsteroidsPerSpawn = 3;     // Số lượng thiên thạch tối đa mỗi lần spawn
+    public int maxAsteroidsPerSpawn = 4;     // Số lượng thiên thạch tối đa mỗi lần spawn
     public float speedIncreaseInterval = 15f; // Thời gian để tăng tốc độ rơi của thiên thạch (giây)
-    public float speedIncreaseAmount = 0.5f;  // Mức tăng tốc độ mỗi lần
+    public float speedIncreaseAmount = 1.5f;  // Mức tăng tốc độ mỗi lần
 
     private float timeSinceLastSpawn = 0f;
     private float timeSinceLastSpeedIncrease = 0f;
