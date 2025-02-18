@@ -9,13 +9,16 @@ public class Asteroid : MonoBehaviour
     public float minSpeed = 1.0f;
     public float maxSpeed = 3.0f;
     public float rotationSpeed = 50f;
+    public AudioClip audioClip;
 
     private int health = 1;
     private Rigidbody2D rb;
+    private AudioSource audioSource;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        audioSource = GetComponent<AudioSource>();
 
         //Di chuyển theo hướng ngẫu nhiên
         Vector2 moveDirection = Random.insideUnitSphere.normalized;
@@ -40,6 +43,7 @@ public class Asteroid : MonoBehaviour
     {
         if (collision.CompareTag("PlayerBulletTag"))
         {
+            audioSource.PlayOneShot(audioClip);
             Destroy(collision.gameObject);
             health--;
 
@@ -54,6 +58,7 @@ public class Asteroid : MonoBehaviour
     {
         Debug.Log($"Thiên thạch {gameObject.name} đang phát nổ."); // Thêm dòng này
         GameObject explode = Instantiate(explosionEffect, transform.position, Quaternion.identity);
+
         Destroy(explode, 0.5f);
         Destroy(gameObject);
     }

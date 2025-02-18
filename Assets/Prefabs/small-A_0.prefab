@@ -171,6 +171,7 @@ MonoBehaviour:
   minSpeed: 1
   maxSpeed: 3
   rotationSpeed: 50
+  audioClip: {fileID: 8300000, guid: e88755ad2b1996d42aae7b19c22fed43, type: 3}
 --- !u!82 &1593802563008770247
 AudioSource:
   m_ObjectHideFlags: 0
@@ -181,9 +182,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 3c35b5cf2d254994697fc362cc2e4694, type: 3}
-  m_Resource: {fileID: 8300000, guid: 3c35b5cf2d254994697fc362cc2e4694, type: 3}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: e88755ad2b1996d42aae7b19c22fed43, type: 3}
+  m_Resource: {fileID: 8300000, guid: e88755ad2b1996d42aae7b19c22fed43, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
