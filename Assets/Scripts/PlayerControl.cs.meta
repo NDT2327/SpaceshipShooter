@@ -1,2 +1,18 @@
 fileFormatVersion: 2
 guid: 69c642a8ed890494f8a72b98995d5251
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - PlayerBulletGO: {fileID: 8717424187668481496, guid: c8713be7faa84b74daae214708647e97, type: 3}
+  - BulletPosition01: {instanceID: 0}
+  - BulletPosition02: {instanceID: 0}
+  - BulletPosition03: {instanceID: 0}
+  - BulletPosition04: {instanceID: 0}
+  - BulletPosition05: {instanceID: 0}
+  - ExplosionGO: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
