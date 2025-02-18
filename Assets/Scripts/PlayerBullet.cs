@@ -3,11 +3,14 @@ using UnityEngine;
 public class PlayerBullet : MonoBehaviour
 {
     float speed;
+    //public AudioClip audioClip;
 
+    //private AudioSource audioSource;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         speed = 8f;
+        //audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -31,6 +34,7 @@ public class PlayerBullet : MonoBehaviour
     {
         if (collision.CompareTag("AsteroidTag"))
         {
+            //audioSource.PlayOneShot(audioClip);
             Destroy(gameObject);
         }
     }

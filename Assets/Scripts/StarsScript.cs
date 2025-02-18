@@ -7,11 +7,12 @@ public class StarsScript : MonoBehaviour
     public float deadZone = -7f;
 
     public GameObject explosionPrefab;
+    private AudioSource audioSource;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -25,20 +26,27 @@ public class StarsScript : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        //thêm hàm cộng score ở đây
-
-        //
-        if (explosionPrefab != null)
+        // Kiểm tra xem Star có chạm vào PlayerShip không
+        if (collision.CompareTag("PlayerShipTag"))
         {
-            GameObject explosion = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
-            Destroy(explosion, 0.5f); // Xóa hiệu ứng sau 1 giây
-        }
+            // Thêm hàm cộng điểm ở đây nếu cần
+            // Example: ScoreManager.Instance.AddScore(10);
 
-        // Trì hoãn hủy gameObject để hiệu ứng hiển thị trước khi biến mất
-        GetComponent<SpriteRenderer>().enabled = false; // Ẩn sprite ngay khi va chạm
-        GetComponent<Collider2D>().enabled = false; // Vô hiệu hóa collider tránh va chạm tiếp
-        Destroy(gameObject, 0.5f); // Chờ 0.5 giây rồi xóa
+            // Hiển thị hiệu ứng nổ nếu có
+            if (explosionPrefab != null)
+            {
+                GameObject explosion = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+                Destroy(explosion, 0.5f); // Xóa hiệu ứng sau 0.5 giây
+            }
+            audioSource.Play();
+            // Trì hoãn hủy gameObject để hiệu ứng hiển thị trước khi biến mất
+            GetComponent<SpriteRenderer>().enabled = false; // Ẩn sprite ngay khi va chạm
+            GetComponent<Collider2D>().enabled = false; // Vô hiệu hóa collider tránh va chạm tiếp
+            Destroy(audioSource, audioSource.clip.length);
+            Destroy(gameObject, 0.5f); // Chờ 0.5 giây rồi xóa
+        }
     }
+
 }

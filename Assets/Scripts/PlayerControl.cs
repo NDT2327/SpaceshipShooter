@@ -21,6 +21,9 @@ public class PlayerControl : MonoBehaviour
     private List<GameObject> bulletPositions = new List<GameObject>();
     private int currentState = 0; // Trạng thái hiện tại
 
+    private AudioSource audioSource;
+    public AudioClip laserSound;
+
     void Start()
     {
         bulletPositions.Add(BulletPosition01);
@@ -30,12 +33,17 @@ public class PlayerControl : MonoBehaviour
         BulletPosition03.SetActive(false);
         BulletPosition04.SetActive(false);
         BulletPosition05.SetActive(false);
+
+        //lấy audiosource component
+        audioSource = GetComponent<AudioSource>();
+ 
     }
 
     void Update()
     {
         if (Input.GetKeyDown("space"))
         {
+            audioSource.PlayOneShot(laserSound);
             foreach (GameObject bulletPos in bulletPositions)
             {
                 GameObject bullet = Instantiate(PlayerBulletGO);

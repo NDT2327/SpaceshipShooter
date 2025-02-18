@@ -1,88 +1,74 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class AsteroidSpawner : MonoBehaviour
 {
     public GameObject[] asteroidPrefabs;
-    public float minSpawnTime = 3f;
-    public float maxSpawnTime = 3f;
-    public float spawnAreaWidth = 10f;
-    public int asteroidsPerWave = 6;
-    public float spawnDelay = 0.5f; // Độ trễ giữa các lần spawn
-    public float spawnIncreaseDuration = 5f; // Thời gian để tăng dần số lượng và tốc độ spawn
-    public int maxAsteroidsPerWave = 10; // Giới hạn số thiên thạch tối đa mỗi lần spawn
-    public float minSpawnDelay = 0.2f; // Giới hạn tối thiểu của spawn delay
+    public float spawnInterval = 1.5f;          // Thời gian giữa các lần spawn (giây)
+    public float spawnAreaWidth = 25f;         // Chiều rộng khu vực spawn
+    public float initialSpeed = 3f;          // Tốc độ ban đầu của thiên thạch
+    public float maxSpeed = 10f;             // Tốc độ tối đa của thiên thạch
+    public int minAsteroidsPerSpawn = 1;     // Số lượng thiên thạch tối thiểu mỗi lần spawn
+    public int maxAsteroidsPerSpawn = 4;     // Số lượng thiên thạch tối đa mỗi lần spawn
+    public float speedIncreaseInterval = 15f; // Thời gian để tăng tốc độ rơi của thiên thạch (giây)
+    public float speedIncreaseAmount = 1.5f;  // Mức tăng tốc độ mỗi lần
 
-    private float nextSpawnTime;
+    private float timeSinceLastSpawn = 0f;
+    private float timeSinceLastSpeedIncrease = 0f;
+    private float currentSpeed;
 
     void Start()
     {
-        nextSpawnTime = Time.time + Random.Range(minSpawnTime, maxSpawnTime);
-        StartCoroutine(IncreaseAsteroidSpawnRate());
+        currentSpeed = initialSpeed;
     }
 
     void Update()
     {
-        if (Time.time > nextSpawnTime)
-        {
-            StartCoroutine(SpawnWaveWithDelay());
+        timeSinceLastSpawn += Time.deltaTime;
+        timeSinceLastSpeedIncrease += Time.deltaTime;
 
-            nextSpawnTime = Time.time + Random.Range(minSpawnTime, maxSpawnTime);
+        // Tăng tốc độ theo thời gian
+        if (timeSinceLastSpeedIncrease >= speedIncreaseInterval)
+        {
+            currentSpeed = Mathf.Min(currentSpeed + speedIncreaseAmount, maxSpeed);
+            timeSinceLastSpeedIncrease = 0f;
+        }
+
+        // Kiểm tra xem đã đến thời gian spawn chưa
+        if (timeSinceLastSpawn >= spawnInterval)
+        {
+            SpawnAsteroidWave();
+            timeSinceLastSpawn = 0f; // Reset thời gian
         }
     }
 
-    IEnumerator SpawnWaveWithDelay()
+    void SpawnAsteroidWave()
     {
-        for (int i = 0; i < asteroidsPerWave; i++)
+        //Tính toán số lượng thiên thạch ngẫu nhiên cho đợt này
+        int asteroidCount = Random.Range(minAsteroidsPerSpawn, maxAsteroidsPerSpawn + 1);
+
+        for (int i = 0; i < asteroidCount; i++)
         {
             SpawnAsteroid();
-            yield return new WaitForSeconds(spawnDelay);
         }
     }
 
     void SpawnAsteroid()
     {
-        if (asteroidPrefabs == null || asteroidPrefabs.Length == 0)
-        {
-            Debug.LogError("Không có thiên thạch nào để spawn!");
-            return;
-        }
+        // Chọn ngẫu nhiên một prefab
+        GameObject asteroidPrefab = asteroidPrefabs[Random.Range(0, asteroidPrefabs.Length)];
 
-        int randomIndex = Random.Range(0, asteroidPrefabs.Length);
-        GameObject asteroidToSpawn = asteroidPrefabs[randomIndex];
-
-        if (asteroidToSpawn == null)
-        {
-            Debug.LogError("Thiên thạch bị lỗi hoặc bị phá hủy!");
-            return;
-        }
-
+        // Tính toán vị trí spawn ngẫu nhiên
         Vector2 spawnPosition = Camera.main.ViewportToWorldPoint(new Vector2(0.5f, 1f));
         spawnPosition.x += Random.Range(-spawnAreaWidth / 2, spawnAreaWidth / 2);
-        spawnPosition.y += 2f;
 
-        Instantiate(asteroidToSpawn, spawnPosition, Quaternion.identity);
-    }
+        // Tạo instance của thiên thạch
+        GameObject newAsteroid = Instantiate(asteroidPrefab, spawnPosition, Quaternion.identity);
 
-    // Coroutine để tăng số lượng thiên thạch và giảm thời gian spawn trong 5 giây
-    IEnumerator IncreaseAsteroidSpawnRate()
-    {
-        float elapsedTime = 0f;
-        int startAsteroids = asteroidsPerWave;
-        float startSpawnDelay = spawnDelay;
-
-        while (elapsedTime < spawnIncreaseDuration)
+        // Thiết lập tốc độ cho thiên thạch
+        Rigidbody2D rb = newAsteroid.GetComponent<Rigidbody2D>();
+        if (rb != null)
         {
-            elapsedTime += Time.deltaTime;
-            float progress = elapsedTime / spawnIncreaseDuration;
-
-            // Tăng số lượng thiên thạch theo thời gian (giới hạn maxAsteroidsPerWave)
-            asteroidsPerWave = Mathf.RoundToInt(Mathf.Lerp(startAsteroids, maxAsteroidsPerWave, progress));
-
-            // Giảm thời gian delay giữa các lần spawn (không nhỏ hơn minSpawnDelay)
-            spawnDelay = Mathf.Lerp(startSpawnDelay, minSpawnDelay, progress);
-
-            yield return null; // Đợi frame tiếp theo
+            rb.linearVelocity = Vector2.down * currentSpeed;
         }
     }
 }
