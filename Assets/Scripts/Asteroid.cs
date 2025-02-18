@@ -35,17 +35,24 @@ public class Asteroid : MonoBehaviour
         rb.angularVelocity = Random.Range(-rotationSpeed, rotationSpeed);
     }
 
-    void OnBecameInvisible()
+    void OnTriggerEnter2D(Collider2D collision)
     {
-        Explode();    
+        if (collision.CompareTag("PlayerBulletTag"))
+        {
+            Destroy(collision.gameObject);
+            health--;
+
+            if (health <= 0)
+            {
+                Explode();
+            }
+        }
     }
 
     void Explode()
     {
-        if(explosionEffect != null)
-        {
-            Instantiate(explosionEffect, transform.position, Quaternion.identity);
-        }
+        Debug.Log($"Thiên thạch {gameObject.name} đang phát nổ."); // Thêm dòng này
+        Instantiate(explosionEffect, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 
