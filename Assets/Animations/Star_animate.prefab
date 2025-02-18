@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8860300725837665555}
   - component: {fileID: 3637621011214005954}
   - component: {fileID: 6257930667801281684}
+  - component: {fileID: 5263698919745921289}
   m_Layer: 0
   m_Name: Star_animate
   m_TagString: Untagged
@@ -163,3 +164,31 @@ MonoBehaviour:
   moveSpeed: 1
   score: 100
   deadZone: -7
+  explosionPrefab: {fileID: 247475164174033896, guid: cd4f2681420a2b448a645d91a303f26d, type: 3}
+--- !u!50 &5263698919745921289
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 299620335291894594}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
