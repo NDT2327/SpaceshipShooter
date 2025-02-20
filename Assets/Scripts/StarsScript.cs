@@ -8,11 +8,15 @@ public class StarsScript : MonoBehaviour
 
     public GameObject explosionPrefab;
     private AudioSource audioSource;
+    private LogicScript logicScript; // Tham chiếu đến script quản lý điểm
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        logicScript = GameObject.FindGameObjectWithTag("LogicScore").GetComponent<LogicScript>();
+
     }
 
     // Update is called once per frame
@@ -46,6 +50,8 @@ public class StarsScript : MonoBehaviour
             GetComponent<Collider2D>().enabled = false; // Vô hiệu hóa collider tránh va chạm tiếp
             Destroy(audioSource, audioSource.clip.length);
             Destroy(gameObject, 0.5f); // Chờ 0.5 giây rồi xóa
+            logicScript.addScore(score); // Cộng điểm khi thiên thạch nổ
+
         }
     }
 
