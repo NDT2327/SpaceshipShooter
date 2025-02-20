@@ -24,6 +24,8 @@ public class PlayerControl : MonoBehaviour
 
     private AudioSource audioSource;
     public AudioClip laserSound;
+    private LogicScript logicScript; // Tham chiếu đến script quản lý điểm
+
 
     //heart
     public Sprite fullHeart;
@@ -43,9 +45,12 @@ public class PlayerControl : MonoBehaviour
 
         //lấy audiosource component
         audioSource = GetComponent<AudioSource>();
-
         //heath initial
         health = heartImages.Length;
+
+        logicScript = GameObject.FindGameObjectWithTag("LogicScore").GetComponent<LogicScript>();
+
+
 
     }
 
@@ -212,6 +217,7 @@ public class PlayerControl : MonoBehaviour
         if (collision.CompareTag("AsteroidTag"))
         {
             TakeDamage();
+            logicScript.gameOver();
             PlayerExplosion();
             //Destroy(gameObject);
         }
