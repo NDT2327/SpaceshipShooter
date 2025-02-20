@@ -217,7 +217,6 @@ public class PlayerControl : MonoBehaviour
         if (collision.CompareTag("AsteroidTag"))
         {
             TakeDamage();
-            logicScript.gameOver();
             PlayerExplosion();
             //Destroy(gameObject);
         }
@@ -255,6 +254,7 @@ public class PlayerControl : MonoBehaviour
         if (health <= 0)
         {
             PlayerExplosion();
+            logicScript.gameOver();
             Destroy(gameObject);
         }
     }

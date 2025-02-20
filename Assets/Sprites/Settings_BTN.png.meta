@@ -1,19 +1,10 @@
 fileFormatVersion: 2
-guid: 61fff8da575c994469579786dca8e3a6
+guid: 053fbd81aee4e1e4d8052eafa2b85a23
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1965329590434443573
-    second: efd58f52-0f21-43ac-bc7c-1b5bcaaf0604-removebg-preview_0
-  - first:
-      213: 5167629328612538608
-    second: efd58f52-0f21-43ac-bc7c-1b5bcaaf0604-removebg-preview_1
-  - first:
-      213: 6347253952386852371
-    second: efd58f52-0f21-43ac-bc7c-1b5bcaaf0604-removebg-preview_2
-  - first:
-      213: 8248772297161932972
-    second: efd58f52-0f21-43ac-bc7c-1b5bcaaf0604-removebg-preview_3
+      213: -7488576275953708741
+    second: Settings_BTN_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -60,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -122,89 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: efd58f52-0f21-43ac-bc7c-1b5bcaaf0604-removebg-preview_0
+      name: Settings_BTN_0
       rect:
         serializedVersion: 2
-        x: 45
-        y: 176
-        width: 305
-        height: 158
+        x: 0
+        y: 0
+        width: 210
+        height: 210
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 25e8f3d624ead3444a6636cf8c2499da
-      internalID: 986208564
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: efd58f52-0f21-43ac-bc7c-1b5bcaaf0604-removebg-preview_1
-      rect:
-        serializedVersion: 2
-        x: 394
-        y: 187
-        width: 274
-        height: 125
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3ff2555bbc6afcd42874738163bd891b
-      internalID: 1081475872
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: efd58f52-0f21-43ac-bc7c-1b5bcaaf0604-removebg-preview_2
-      rect:
-        serializedVersion: 2
-        x: 37
-        y: 29
-        width: 321
-        height: 121
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 475254bf09531e4448c1e2d85a166b4f
-      internalID: 1019216197
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: efd58f52-0f21-43ac-bc7c-1b5bcaaf0604-removebg-preview_3
-      rect:
-        serializedVersion: 2
-        x: 394
-        y: 21
-        width: 274
-        height: 143
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3fc387eb14ce53547956ea4077e22954
-      internalID: 1617752194
+      spriteID: b319c5e9d8b331890800000000000000
+      internalID: -7488576275953708741
       vertices: []
       indices: 
       edges: []
@@ -213,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 485f22fb7fa1ac448a4a82df45d7c98e
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -222,11 +147,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      efd58f52-0f21-43ac-bc7c-1b5bcaaf0604-removebg-preview_0: 986208564
-      efd58f52-0f21-43ac-bc7c-1b5bcaaf0604-removebg-preview_1: 1081475872
-      efd58f52-0f21-43ac-bc7c-1b5bcaaf0604-removebg-preview_2: 1019216197
-      efd58f52-0f21-43ac-bc7c-1b5bcaaf0604-removebg-preview_3: 1617752194
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
