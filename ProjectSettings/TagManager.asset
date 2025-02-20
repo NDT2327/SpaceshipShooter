@@ -8,6 +8,7 @@ TagManager:
   - PlayerShipTag
   - PlayerBulletTag
   - Bullet
+  - LogicScore
   layers:
   - Default
   - TransparentFX
