@@ -1,10 +1,12 @@
-﻿using UnityEngine;
+﻿using NUnit.Framework;
+using System.Collections.Generic;
+using UnityEngine;
 
 public class AsteroidSpawner : MonoBehaviour
 {
     public GameObject[] asteroidPrefabs;
     public float spawnInterval = 1.5f;          // Thời gian giữa các lần spawn (giây)
-    public float spawnAreaWidth = 25f;         // Chiều rộng khu vực spawn
+    public float spawnAreaWidth = 17f;         // Chiều rộng khu vực spawn
     public float initialSpeed = 3f;          // Tốc độ ban đầu của thiên thạch
     public float maxSpeed = 10f;             // Tốc độ tối đa của thiên thạch
     public int minAsteroidsPerSpawn = 1;     // Số lượng thiên thạch tối thiểu mỗi lần spawn
@@ -15,6 +17,7 @@ public class AsteroidSpawner : MonoBehaviour
     private float timeSinceLastSpawn = 0f;
     private float timeSinceLastSpeedIncrease = 0f;
     private float currentSpeed;
+    private List<Rigidbody2D> activeAsteroids = new List<Rigidbody2D>();
 
     void Start()
     {
@@ -38,6 +41,17 @@ public class AsteroidSpawner : MonoBehaviour
         {
             SpawnAsteroidWave();
             timeSinceLastSpawn = 0f; // Reset thời gian
+        }
+    }
+
+    void FixedUpdate()
+    {
+        foreach (Rigidbody2D item in activeAsteroids)
+        {
+            if(item != null)
+            {
+                item.linearVelocity = Vector2.down * currentSpeed;
+            }
         }
     }
 

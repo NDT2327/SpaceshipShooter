@@ -2,17 +2,20 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class MenuGame:MonoBehaviour
 {
-    public void start() {
+    public void StartGame() {
         SceneManager.LoadScene(0);
+        Debug.Log("Start Game Clicked");
     
     }
 
-    public void control() {
+    public void Tutorial() {
         SceneManager.LoadScene(3);
+        Debug.Log("Tutorial Clicked");
     
     }
 
-    public void end() {
+    public void Quit() {
         Application.Quit();
+        Debug.Log("Quit Game Clicked");
     }
 }
