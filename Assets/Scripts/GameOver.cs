@@ -4,6 +4,11 @@ using UnityEngine.SceneManagement;
 public class GameOver:MonoBehaviour
 {
 
+    private void Start()
+    {
+        
+    }
+
     public void Menu()
     {
         SceneManager.LoadScene(1);
