@@ -14,11 +14,15 @@ public class Asteroid : MonoBehaviour
     private int health = 1;
     private Rigidbody2D rb;
     private AudioSource audioSource;
+    private int scoreValue = 0; // Điểm khi phá hủy thiên thạch
+    private LogicScript logicScript; // Tham chiếu đến script quản lý điểm
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         audioSource = GetComponent<AudioSource>();
+
+        logicScript = GameObject.FindGameObjectWithTag("LogicScore").GetComponent<LogicScript>();
 
         //Di chuyển theo hướng ngẫu nhiên
         Vector2 moveDirection = Random.insideUnitSphere.normalized;
@@ -30,10 +34,17 @@ public class Asteroid : MonoBehaviour
         switch (Type)
         {
             case AsteroidType.Small:
+                scoreValue = 10;
                 health = 2;
                 break;
-            case AsteroidType.Medium: health = 6; break;
-            case AsteroidType.Large: health = 10; break;
+            case AsteroidType.Medium:
+                scoreValue = 20;
+                health = 6;
+                break;
+            case AsteroidType.Large: 
+                scoreValue = 30;
+                health = 10;
+                break;
         }
 
 
@@ -50,6 +61,8 @@ public class Asteroid : MonoBehaviour
             if (health <= 0)
             {
                 Explode();
+                logicScript.addScore(scoreValue); // Cộng điểm khi thiên thạch nổ
+                
             }
         }
         if (collision.CompareTag("PlayerShipTag"))
