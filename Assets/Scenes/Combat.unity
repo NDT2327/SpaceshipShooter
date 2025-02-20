@@ -220,7 +220,7 @@ PrefabInstance:
       objectReference: {fileID: 1625930582246939413, guid: bd0fbef75e354e640ad337733964b1db, type: 3}
     - target: {fileID: 555489024114682806, guid: a881d1dae9641d0479fb28df3e8742ef, type: 3}
       propertyPath: spawnAreaWidth
-      value: 25
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 555489024114682806, guid: a881d1dae9641d0479fb28df3e8742ef, type: 3}
       propertyPath: speedIncreaseAmount
@@ -386,7 +386,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -497,7 +497,7 @@ Transform:
   m_GameObject: {fileID: 480862347}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0.73, y: -0.07, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -720,7 +720,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -935,7 +935,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1180,13 +1180,37 @@ PrefabInstance:
       propertyPath: m_PlayOnAwake
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3998171088642526729, guid: 4a3afe0bab52e524792daa527268a75b, type: 3}
+      propertyPath: fullHeart
+      value: 
+      objectReference: {fileID: 13756936, guid: 3fdc89daf111f3b40a8cdcb25de9a9a2, type: 3}
+    - target: {fileID: 3998171088642526729, guid: 4a3afe0bab52e524792daa527268a75b, type: 3}
+      propertyPath: emptyHeart
+      value: 
+      objectReference: {fileID: -180218659, guid: 3fdc89daf111f3b40a8cdcb25de9a9a2, type: 3}
+    - target: {fileID: 3998171088642526729, guid: 4a3afe0bab52e524792daa527268a75b, type: 3}
+      propertyPath: heartImages.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3998171088642526729, guid: 4a3afe0bab52e524792daa527268a75b, type: 3}
+      propertyPath: 'heartImages.Array.data[0]'
+      value: 
+      objectReference: {fileID: 725521058}
+    - target: {fileID: 3998171088642526729, guid: 4a3afe0bab52e524792daa527268a75b, type: 3}
+      propertyPath: 'heartImages.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1231897111}
+    - target: {fileID: 3998171088642526729, guid: 4a3afe0bab52e524792daa527268a75b, type: 3}
+      propertyPath: 'heartImages.Array.data[2]'
+      value: 
+      objectReference: {fileID: 284581334}
     - target: {fileID: 5994395068141305594, guid: 4a3afe0bab52e524792daa527268a75b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.01
+      value: 0.99
       objectReference: {fileID: 0}
     - target: {fileID: 5994395068141305594, guid: 4a3afe0bab52e524792daa527268a75b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.78
+      value: -4.53
       objectReference: {fileID: 0}
     - target: {fileID: 5994395068141305594, guid: 4a3afe0bab52e524792daa527268a75b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1319,9 +1343,9 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 284581333}
   - {fileID: 725521057}
   - {fileID: 1231897110}
+  - {fileID: 284581333}
   - {fileID: 191232107}
   - {fileID: 1279191467}
   - {fileID: 259260533}

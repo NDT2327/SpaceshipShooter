@@ -65,6 +65,10 @@ public class Asteroid : MonoBehaviour
                 
             }
         }
+        if (collision.CompareTag("PlayerShipTag"))
+        {
+            audioSource.PlayOneShot(audioClip);
+        }
     }
 
     void Explode()

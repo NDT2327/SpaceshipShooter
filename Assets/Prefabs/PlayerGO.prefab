@@ -203,6 +203,9 @@ MonoBehaviour:
   speed: 5
   maxStateDuration: 5
   laserSound: {fileID: 8300000, guid: 3c35b5cf2d254994697fc362cc2e4694, type: 3}
+  fullHeart: {fileID: 13756936, guid: 3fdc89daf111f3b40a8cdcb25de9a9a2, type: 3}
+  emptyHeart: {fileID: 0}
+  heartImages: []
 --- !u!61 &5898186159419163210
 BoxCollider2D:
   m_ObjectHideFlags: 0

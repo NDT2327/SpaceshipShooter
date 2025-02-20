@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerControl : MonoBehaviour
 {
@@ -26,6 +27,12 @@ public class PlayerControl : MonoBehaviour
     private LogicScript logicScript; // Tham chiếu đến script quản lý điểm
 
 
+    //heart
+    public Sprite fullHeart;
+    public Sprite emptyHeart;
+    public Image[] heartImages;
+    private int health;
+
     void Start()
     {
         bulletPositions.Add(BulletPosition01);
@@ -38,7 +45,11 @@ public class PlayerControl : MonoBehaviour
 
         //lấy audiosource component
         audioSource = GetComponent<AudioSource>();
+        //heath initial
+        health = heartImages.Length;
+
         logicScript = GameObject.FindGameObjectWithTag("LogicScore").GetComponent<LogicScript>();
+
 
 
     }
@@ -205,9 +216,19 @@ public class PlayerControl : MonoBehaviour
     {
         if (collision.CompareTag("AsteroidTag"))
         {
+            TakeDamage();
             logicScript.gameOver();
             PlayerExplosion();
-            Destroy(gameObject);
+            //Destroy(gameObject);
+        }
+    }
+
+    void TakeDamage()
+    {
+        if (health > 0)
+        {
+            health--;
+            UpdateHealthUI();
         }
     }
 
@@ -215,5 +236,26 @@ public class PlayerControl : MonoBehaviour
     {
         GameObject explosion = Instantiate(ExplosionGO);
         explosion.transform.position = transform.position;
+    }
+
+    private void UpdateHealthUI()
+    {
+        for (int i = 0; i < heartImages.Length; i++)
+        {
+            if (i < health)
+            {
+                heartImages[i].sprite = fullHeart;
+            }
+            else
+            {
+                heartImages[i].sprite = emptyHeart;
+            }
+        }
+
+        if (health <= 0)
+        {
+            PlayerExplosion();
+            Destroy(gameObject);
+        }
     }
 }
