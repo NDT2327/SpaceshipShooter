@@ -23,6 +23,8 @@ public class PlayerControl : MonoBehaviour
 
     private AudioSource audioSource;
     public AudioClip laserSound;
+    private LogicScript logicScript; // Tham chiếu đến script quản lý điểm
+
 
     void Start()
     {
@@ -36,7 +38,9 @@ public class PlayerControl : MonoBehaviour
 
         //lấy audiosource component
         audioSource = GetComponent<AudioSource>();
- 
+        logicScript = GameObject.FindGameObjectWithTag("LogicScore").GetComponent<LogicScript>();
+
+
     }
 
     void Update()
@@ -201,6 +205,7 @@ public class PlayerControl : MonoBehaviour
     {
         if (collision.CompareTag("AsteroidTag"))
         {
+            logicScript.gameOver();
             PlayerExplosion();
             Destroy(gameObject);
         }
