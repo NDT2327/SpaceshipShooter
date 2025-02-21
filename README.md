@@ -4,18 +4,7 @@
 
 ## Description
 
-In SpaceshipShooter, you control a spaceship and have to fight against ever-increasing waves of enemies. Collect power-ups to upgrade your weapons and defeat the final boss to win. The game features simple graphics, intuitive controls and engaging sounds to create a satisfying gaming experience.
-
-## Features
-
-* **Arcade space shooter gameplay:** Control your spaceship and shoot down enemies in a fast-paced action experience.
-
-* **Upgrade weapons:** Collect power-ups to upgrade your weapons and increase firepower.
-* **Challenging Bosses:** Face powerful bosses that require strategy and skill to defeat.
-
-* **Attractive Graphics and Sound:** Enjoy simple yet engaging graphics and vivid sound effects.
-
-* **Intuitive Controls:** Easy to learn and play with simple controls.
+In SpaceshipShooter,  you controls a blue spaceship, battling through waves of diverse asteroids while collecting stars and utilizing projectile power-ups.
 
 ## Tutorial
 
