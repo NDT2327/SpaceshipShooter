@@ -38,7 +38,7 @@ public class MenuController : MonoBehaviour
     public void LoadMainMenu()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("MenuScene");
     }
 
     public void RestartGame()

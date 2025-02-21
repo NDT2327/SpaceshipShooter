@@ -12,11 +12,11 @@ EditorBuildSettings:
     path: Assets/Scenes/StarScene.unity
     guid: 6e94223e883e25c49a63fabd03e5ce28
   - enabled: 1
-    path: Assets/Scenes/Combat.unity
-    guid: b0f5ef471c54ce34fba860f2a54d1cc2
-  - enabled: 1
     path: Assets/Scenes/MenuScene.unity
     guid: 21260c26aaef8a042b285269fd57b3f2
+  - enabled: 1
+    path: Assets/Scenes/Combat.unity
+    guid: b0f5ef471c54ce34fba860f2a54d1cc2
   - enabled: 1
     path: Assets/Scenes/GameOverScene.unity
     guid: 3c4ec131bf982d343b302c1ef1bf186d

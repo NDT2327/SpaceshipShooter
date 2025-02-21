@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 public class MenuGame:MonoBehaviour
 {
     public void StartGame() {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("Combat");
         Debug.Log("Start Game Clicked");
     
     }

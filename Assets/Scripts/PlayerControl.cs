@@ -37,6 +37,8 @@ public class PlayerControl : MonoBehaviour
     //Blink effect
     public float blinkDuration = 1f;
     public int blinkCount = 5;
+    private bool isInvincible = false; // Biến kiểm soát trạng thái bất tử
+    public float invincibleDuration = 2f; // Thời gian bất tử sau khi nổ
 
     void Start()
     {
@@ -269,6 +271,7 @@ public class PlayerControl : MonoBehaviour
             health--;
             StartCoroutine(BlinkEffect());
             UpdateHealthUI();
+            StartCoroutine(TemporaryInvincibility()); // Bắt đầu bất tử tạm thời
         }
     }
 
@@ -298,5 +301,12 @@ public class PlayerControl : MonoBehaviour
             logicScript.gameOver();
             Destroy(gameObject);
         }
+    }
+    // Coroutine để tạo bất tử tạm thời
+    IEnumerator TemporaryInvincibility()
+    {
+        isInvincible = true; // Kích hoạt bất tử
+        yield return new WaitForSeconds(invincibleDuration); // Chờ trong khoảng thời gian bất tử
+        isInvincible = false; // Kết thúc bất tử
     }
 }
