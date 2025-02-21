@@ -33,6 +33,11 @@ public class PlayerControl : MonoBehaviour
     public Image[] heartImages;
     private int health;
 
+
+    //Blink effect
+    public float blinkDuration = 1f;
+    public int blinkCount = 5;
+
     void Start()
     {
         bulletPositions.Add(BulletPosition01);
@@ -212,6 +217,41 @@ public class PlayerControl : MonoBehaviour
         }
     }
 
+    IEnumerator BlinkEffect()
+    {
+        if (heartImages == null || heartImages.Length == 0)
+        {
+            yield break;
+        }
+
+        for (int i = 0; i < blinkCount; i++)
+        {
+            foreach (Image heartImage in heartImages)
+            {
+                if (heartImage != null)
+                {
+                    Color color = heartImage.color;
+                    color.a = 0f; // Làm mờ trái tim (ẩn)
+                    heartImage.color = color;
+                }
+            }
+
+            yield return new WaitForSeconds(blinkDuration / (2f * blinkCount));
+
+            foreach (Image heartImage in heartImages)
+            {
+                if (heartImage != null)
+                {
+                    Color color = heartImage.color;
+                    color.a = 1f; // Hiển thị lại trái tim
+                    heartImage.color = color;
+                }
+            }
+
+            yield return new WaitForSeconds(blinkDuration / (2f * blinkCount));
+        }
+    }
+
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("AsteroidTag"))
@@ -227,6 +267,7 @@ public class PlayerControl : MonoBehaviour
         if (health > 0)
         {
             health--;
+            StartCoroutine(BlinkEffect());
             UpdateHealthUI();
         }
     }
