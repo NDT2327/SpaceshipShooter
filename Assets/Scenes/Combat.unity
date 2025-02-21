@@ -295,7 +295,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 555489024114682806, guid: a881d1dae9641d0479fb28df3e8742ef, type: 3}
       propertyPath: spawnInterval
-      value: 1.5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 555489024114682806, guid: a881d1dae9641d0479fb28df3e8742ef, type: 3}
       propertyPath: asteroidPrefab
@@ -303,7 +303,7 @@ PrefabInstance:
       objectReference: {fileID: 1625930582246939413, guid: bd0fbef75e354e640ad337733964b1db, type: 3}
     - target: {fileID: 555489024114682806, guid: a881d1dae9641d0479fb28df3e8742ef, type: 3}
       propertyPath: spawnAreaWidth
-      value: 20
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 555489024114682806, guid: a881d1dae9641d0479fb28df3e8742ef, type: 3}
       propertyPath: speedIncreaseAmount
@@ -838,7 +838,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5122972509620335010, guid: 9a78c0df0b9a0694dad0ff66a46d2926, type: 3}
       propertyPath: spawnInterval
-      value: 15
+      value: 7.2
       objectReference: {fileID: 0}
     - target: {fileID: 5927758941646393391, guid: 9a78c0df0b9a0694dad0ff66a46d2926, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1688,7 +1688,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1667556795
 Transform:
   m_ObjectHideFlags: 0
